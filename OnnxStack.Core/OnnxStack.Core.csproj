@@ -25,6 +25,7 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <PackageIcon>OnnxStack - 128x128.png</PackageIcon>
+    <Configurations>Debug;Release;Debug-DirectML;Debug-Cuda;Debug-TensorRT;Release-DirectML;Release-Cuda;Release-TensorRT;Debug-OpenVino;Release-OpenVino</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
@@ -40,8 +41,12 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
     <PackageReference Include="Microsoft.ML" Version="3.0.0" />
     <PackageReference Include="Microsoft.ML.OnnxRuntime.Extensions" Version="0.9.0" />
-    <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.16.3" />
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.16.3" Condition=" '$(Configuration)' != 'Debug-OpenVino' AND '$(Configuration)' != 'Release-OpenVino'"/>
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.17.0-dev-20231212-0151-ccf3b2054b" Condition=" '$(Configuration)' == 'Debug-OpenVino' OR '$(Configuration)' == 'Release-OpenVino'"/>
   </ItemGroup>
 
   <ItemGroup>

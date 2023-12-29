@@ -8,7 +8,7 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
     <PlatformTarget>x64</PlatformTarget>
-    <Configurations>Debug;Release;Debug-DirectML;Debug-Cuda;Debug-TensorRT;Release-DirectML;Release-Cuda;Release-TensorRT</Configurations>
+    <Configurations>Debug;Release;Debug-DirectML;Debug-Cuda;Debug-TensorRT;Release-DirectML;Release-Cuda;Release-TensorRT;Debug-OpenVino;Release-OpenVino</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-DirectML|AnyCPU'">
@@ -20,6 +20,10 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-TensorRT|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-OpenVino|AnyCPU'">
     <Optimize>True</Optimize>
   </PropertyGroup>
 
@@ -53,17 +57,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="OnnxStack.StableDiffusion" Version="0.14.0" Condition=" '$(Configuration)' == 'Release' OR '$(Configuration)' == 'Release-DirectML' OR '$(Configuration)' == 'Release-Cuda' OR '$(Configuration)' == 'Release-TensorRT'" />
-    <PackageReference Include="OnnxStack.ImageUpscaler" Version="0.14.0" Condition=" '$(Configuration)' == 'Release' OR '$(Configuration)' == 'Release-DirectML' OR '$(Configuration)' == 'Release-Cuda' OR '$(Configuration)' == 'Release-TensorRT'" />
-    <ProjectReference Include="..\OnnxStack.StableDiffusion\OnnxStack.StableDiffusion.csproj" Condition=" '$(Configuration)' == 'Debug' OR '$(Configuration)' == 'Debug-DirectML' OR '$(Configuration)' == 'Debug-Cuda' OR '$(Configuration)' == 'Debug-TensorRT'" />
-    <ProjectReference Include="..\OnnxStack.ImageUpscaler\OnnxStack.ImageUpscaler.csproj" Condition=" '$(Configuration)' == 'Debug' OR '$(Configuration)' == 'Debug-DirectML' OR '$(Configuration)' == 'Debug-Cuda' OR '$(Configuration)' == 'Debug-TensorRT'" />
+    <PackageReference Include="OnnxStack.StableDiffusion" Version="0.14.0" Condition=" '$(Configuration)' == 'Release' OR '$(Configuration)' == 'Release-DirectML' OR '$(Configuration)' == 'Release-Cuda' OR '$(Configuration)' == 'Release-TensorRT' OR '$(Configuration)' == 'Release-OpenVino'" />
+    <PackageReference Include="OnnxStack.ImageUpscaler" Version="0.14.0" Condition=" '$(Configuration)' == 'Release' OR '$(Configuration)' == 'Release-DirectML' OR '$(Configuration)' == 'Release-Cuda' OR '$(Configuration)' == 'Release-TensorRT' OR '$(Configuration)' == 'Release-OpenVino'" />
+    <ProjectReference Include="..\OnnxStack.StableDiffusion\OnnxStack.StableDiffusion.csproj" Condition=" '$(Configuration)' == 'Debug' OR '$(Configuration)' == 'Debug-DirectML' OR '$(Configuration)' == 'Debug-Cuda' OR '$(Configuration)' == 'Debug-TensorRT' OR '$(Configuration)' == 'Debug-OpenVino'" />
+    <ProjectReference Include="..\OnnxStack.ImageUpscaler\OnnxStack.ImageUpscaler.csproj" Condition=" '$(Configuration)' == 'Debug' OR '$(Configuration)' == 'Debug-DirectML' OR '$(Configuration)' == 'Debug-Cuda' OR '$(Configuration)' == 'Debug-TensorRT' OR '$(Configuration)' == 'Debug-OpenVino'" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.16.3" Condition=" '$(Configuration)' == 'Debug' OR '$(Configuration)' == 'Release' " />
     <PackageReference Include="Microsoft.ML.OnnxRuntime.Gpu" Version="1.16.3" Condition=" '$(Configuration)' == 'Debug-TensorRT' OR '$(Configuration)' == 'Release-TensorRT'" />
     <PackageReference Include="Microsoft.ML.OnnxRuntime.Gpu" Version="1.16.3" Condition=" '$(Configuration)' == 'Debug-Cuda' OR '$(Configuration)' == 'Release-Cuda'" />
     <PackageReference Include="Microsoft.ML.OnnxRuntime.DirectML" Version="1.16.3" Condition=" '$(Configuration)' == 'Debug-DirectML' OR '$(Configuration)' == 'Release-DirectML'" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.OpenVino" Version="1.17.0-dev-20231212-0151-ccf3b2054b" Condition=" '$(Configuration)' == 'Debug-OpenVino' OR '$(Configuration)' == 'Release-OpenVino'" />
   </ItemGroup>
 
   <ItemGroup>

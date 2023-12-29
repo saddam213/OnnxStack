@@ -25,6 +25,7 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <PackageIcon>OnnxStack - 128x128.png</PackageIcon>
+    <Configurations>Debug;Release;Debug-DirectML;Debug-Cuda;Debug-TensorRT;Release-DirectML;Release-Cuda;Release-TensorRT;Debug-OpenVino;Release-OpenVino</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

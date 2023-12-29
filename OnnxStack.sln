@@ -18,10 +18,12 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 		Debug-Cuda|Any CPU = Debug-Cuda|Any CPU
 		Debug-DirectML|Any CPU = Debug-DirectML|Any CPU
+		Debug-OpenVino|Any CPU = Debug-OpenVino|Any CPU
 		Debug-TensorRT|Any CPU = Debug-TensorRT|Any CPU
 		Release|Any CPU = Release|Any CPU
 		Release-Cuda|Any CPU = Release-Cuda|Any CPU
 		Release-DirectML|Any CPU = Release-DirectML|Any CPU
+		Release-OpenVino|Any CPU = Release-OpenVino|Any CPU
 		Release-TensorRT|Any CPU = Release-TensorRT|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
@@ -31,6 +33,8 @@ Global
 		{02404CEB-207F-4D19-894C-11D51394F1D5}.Debug-Cuda|Any CPU.Build.0 = Debug|Any CPU
 		{02404CEB-207F-4D19-894C-11D51394F1D5}.Debug-DirectML|Any CPU.ActiveCfg = Debug|Any CPU
 		{02404CEB-207F-4D19-894C-11D51394F1D5}.Debug-DirectML|Any CPU.Build.0 = Debug|Any CPU
+		{02404CEB-207F-4D19-894C-11D51394F1D5}.Debug-OpenVino|Any CPU.ActiveCfg = Debug-OpenVino|Any CPU
+		{02404CEB-207F-4D19-894C-11D51394F1D5}.Debug-OpenVino|Any CPU.Build.0 = Debug-OpenVino|Any CPU
 		{02404CEB-207F-4D19-894C-11D51394F1D5}.Debug-TensorRT|Any CPU.ActiveCfg = Debug|Any CPU
 		{02404CEB-207F-4D19-894C-11D51394F1D5}.Debug-TensorRT|Any CPU.Build.0 = Debug|Any CPU
 		{02404CEB-207F-4D19-894C-11D51394F1D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +43,8 @@ Global
 		{02404CEB-207F-4D19-894C-11D51394F1D5}.Release-Cuda|Any CPU.Build.0 = Release|Any CPU
 		{02404CEB-207F-4D19-894C-11D51394F1D5}.Release-DirectML|Any CPU.ActiveCfg = Release|Any CPU
 		{02404CEB-207F-4D19-894C-11D51394F1D5}.Release-DirectML|Any CPU.Build.0 = Release|Any CPU
+		{02404CEB-207F-4D19-894C-11D51394F1D5}.Release-OpenVino|Any CPU.ActiveCfg = Release-OpenVino|Any CPU
+		{02404CEB-207F-4D19-894C-11D51394F1D5}.Release-OpenVino|Any CPU.Build.0 = Release-OpenVino|Any CPU
 		{02404CEB-207F-4D19-894C-11D51394F1D5}.Release-TensorRT|Any CPU.ActiveCfg = Release|Any CPU
 		{02404CEB-207F-4D19-894C-11D51394F1D5}.Release-TensorRT|Any CPU.Build.0 = Release|Any CPU
 		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -47,6 +53,8 @@ Global
 		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Debug-Cuda|Any CPU.Build.0 = Debug|Any CPU
 		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Debug-DirectML|Any CPU.ActiveCfg = Debug|Any CPU
 		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Debug-DirectML|Any CPU.Build.0 = Debug|Any CPU
+		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Debug-OpenVino|Any CPU.ActiveCfg = Debug-OpenVino|Any CPU
+		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Debug-OpenVino|Any CPU.Build.0 = Debug-OpenVino|Any CPU
 		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Debug-TensorRT|Any CPU.ActiveCfg = Debug|Any CPU
 		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Debug-TensorRT|Any CPU.Build.0 = Debug|Any CPU
 		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,6 +63,8 @@ Global
 		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Release-Cuda|Any CPU.Build.0 = Release|Any CPU
 		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Release-DirectML|Any CPU.ActiveCfg = Release|Any CPU
 		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Release-DirectML|Any CPU.Build.0 = Release|Any CPU
+		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Release-OpenVino|Any CPU.ActiveCfg = Release-OpenVino|Any CPU
+		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Release-OpenVino|Any CPU.Build.0 = Release-OpenVino|Any CPU
 		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Release-TensorRT|Any CPU.ActiveCfg = Release|Any CPU
 		{EA1F61D0-490B-42EC-96F5-7DCCAB94457A}.Release-TensorRT|Any CPU.Build.0 = Release|Any CPU
 		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -63,6 +73,8 @@ Global
 		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Debug-Cuda|Any CPU.Build.0 = Debug|Any CPU
 		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Debug-DirectML|Any CPU.ActiveCfg = Debug|Any CPU
 		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Debug-DirectML|Any CPU.Build.0 = Debug|Any CPU
+		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Debug-OpenVino|Any CPU.ActiveCfg = Debug-OpenVino|Any CPU
+		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Debug-OpenVino|Any CPU.Build.0 = Debug-OpenVino|Any CPU
 		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Debug-TensorRT|Any CPU.ActiveCfg = Debug|Any CPU
 		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Debug-TensorRT|Any CPU.Build.0 = Debug|Any CPU
 		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -71,6 +83,8 @@ Global
 		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Release-Cuda|Any CPU.Build.0 = Release|Any CPU
 		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Release-DirectML|Any CPU.ActiveCfg = Release|Any CPU
 		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Release-DirectML|Any CPU.Build.0 = Release|Any CPU
+		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Release-OpenVino|Any CPU.ActiveCfg = Release-OpenVino|Any CPU
+		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Release-OpenVino|Any CPU.Build.0 = Release-OpenVino|Any CPU
 		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Release-TensorRT|Any CPU.ActiveCfg = Release|Any CPU
 		{46A43C80-A440-4461-B7EB-81FA998FB24B}.Release-TensorRT|Any CPU.Build.0 = Release|Any CPU
 		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -79,6 +93,8 @@ Global
 		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Debug-Cuda|Any CPU.Build.0 = Debug-Cuda|Any CPU
 		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Debug-DirectML|Any CPU.ActiveCfg = Debug-DirectML|Any CPU
 		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Debug-DirectML|Any CPU.Build.0 = Debug-DirectML|Any CPU
+		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Debug-OpenVino|Any CPU.ActiveCfg = Debug-OpenVino|Any CPU
+		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Debug-OpenVino|Any CPU.Build.0 = Debug-OpenVino|Any CPU
 		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Debug-TensorRT|Any CPU.ActiveCfg = Debug-TensorRT|Any CPU
 		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Debug-TensorRT|Any CPU.Build.0 = Debug-TensorRT|Any CPU
 		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -87,6 +103,8 @@ Global
 		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Release-Cuda|Any CPU.Build.0 = Release-Cuda|Any CPU
 		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Release-DirectML|Any CPU.ActiveCfg = Release-DirectML|Any CPU
 		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Release-DirectML|Any CPU.Build.0 = Release-DirectML|Any CPU
+		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Release-OpenVino|Any CPU.ActiveCfg = Release-OpenVino|Any CPU
+		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Release-OpenVino|Any CPU.Build.0 = Release-OpenVino|Any CPU
 		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Release-TensorRT|Any CPU.ActiveCfg = Release-TensorRT|Any CPU
 		{85BB1855-8C3B-4049-A2DD-1130FA6CD846}.Release-TensorRT|Any CPU.Build.0 = Release-TensorRT|Any CPU
 		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -95,6 +113,8 @@ Global
 		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Debug-Cuda|Any CPU.Build.0 = Debug|Any CPU
 		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Debug-DirectML|Any CPU.ActiveCfg = Debug|Any CPU
 		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Debug-DirectML|Any CPU.Build.0 = Debug|Any CPU
+		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Debug-OpenVino|Any CPU.ActiveCfg = Debug-OpenVino|Any CPU
+		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Debug-OpenVino|Any CPU.Build.0 = Debug-OpenVino|Any CPU
 		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Debug-TensorRT|Any CPU.ActiveCfg = Debug|Any CPU
 		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Debug-TensorRT|Any CPU.Build.0 = Debug|Any CPU
 		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -103,6 +123,8 @@ Global
 		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Release-Cuda|Any CPU.Build.0 = Release|Any CPU
 		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Release-DirectML|Any CPU.ActiveCfg = Release|Any CPU
 		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Release-DirectML|Any CPU.Build.0 = Release|Any CPU
+		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Release-OpenVino|Any CPU.ActiveCfg = Release-OpenVino|Any CPU
+		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Release-OpenVino|Any CPU.Build.0 = Release-OpenVino|Any CPU
 		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Release-TensorRT|Any CPU.ActiveCfg = Release|Any CPU
 		{A33D08BF-7881-4910-8439-5AE46646C1DD}.Release-TensorRT|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

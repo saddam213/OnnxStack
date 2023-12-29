@@ -27,6 +27,8 @@ namespace OnnxStack.UI.Models
             yield return ExecutionProvider.Cuda;
 #elif DEBUG_TENSORRT || RELEASE_TENSORRT
             yield return ExecutionProvider.TensorRT;
+#elif DEBUG_OPENVINO || RELEASE_OPENVINO
+            yield return ExecutionProvider.OpenVino;
 #endif
             yield return ExecutionProvider.Cpu;
         }
