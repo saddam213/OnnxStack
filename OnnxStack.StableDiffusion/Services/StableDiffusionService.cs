@@ -44,6 +44,8 @@ namespace OnnxStack.StableDiffusion.Services
             _pipelines = pipelines.ToConcurrentDictionary(k => k.PipelineType, k => k);
         }
 
+        public IReadOnlyCollection<StableDiffusionModelSet> ModelSets => _configuration.ModelSets;
+
 
         /// <summary>
         /// Loads the model.

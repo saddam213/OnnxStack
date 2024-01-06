@@ -40,7 +40,7 @@ public class StableDiffusionTests
     public async Task GivenAStableDiffusionModel_WhenLoadModel_ThenModelIsLoaded(string modelName)
     {
         //arrange
-        var model = _stableDiffusion.Models.Single(m => m.Name == modelName);
+        var model = _stableDiffusion.ModelSets.Single(m => m.Name == modelName);
         
         //act
         _logger.LogInformation("Attempting to load model {0}", model.Name);
@@ -58,7 +58,7 @@ public class StableDiffusionTests
 
     {
         //arrange
-        var model = _stableDiffusion.Models.Single(m => m.Name == modelName);
+        var model = _stableDiffusion.ModelSets.Single(m => m.Name == modelName);
         _logger.LogInformation("Attempting to load model: {0}", model.Name);
         await _stableDiffusion.LoadModelAsync(model);
 
@@ -82,9 +82,9 @@ public class StableDiffusionTests
         var steps = 0;
 
         //act
-        var image = await _stableDiffusion.GenerateAsImageAsync(model, prompt, scheduler, (currentStep, totalSteps) =>
+        var image = await _stableDiffusion.GenerateAsImageAsync(model, prompt, scheduler, (currentStep) =>
         {
-            _logger.LogInformation($"Step {currentStep}/{totalSteps}");
+            _logger.LogInformation($"Step {currentStep}/{inferenceSteps}");
             steps++;
         });
 

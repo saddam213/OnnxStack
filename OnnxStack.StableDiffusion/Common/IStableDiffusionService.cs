@@ -14,6 +14,8 @@ namespace OnnxStack.StableDiffusion.Common
 {
     public interface IStableDiffusionService
     {
+        IReadOnlyCollection<StableDiffusionModelSet> ModelSets { get; }
+
         /// <summary>
         /// Loads the model.
         /// </summary>
