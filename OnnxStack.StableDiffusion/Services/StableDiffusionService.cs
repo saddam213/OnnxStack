@@ -21,6 +21,9 @@ using System.Threading.Tasks;
 
 namespace OnnxStack.StableDiffusion.Services
 {
+    using Guards;
+    using Pipelines;
+
     /// <summary>
     /// Service for generating images using text and image based prompts
     /// </summary>
@@ -102,6 +105,7 @@ namespace OnnxStack.StableDiffusion.Services
         /// <returns>The diffusion result as <see cref="SixLabors.ImageSharp.Image<Rgba32>"/></returns>
         public async Task<Image<Rgba32>> GenerateAsImageAsync(ModelOptions model, PromptOptions prompt, SchedulerOptions options, Action<DiffusionProgress> progressCallback = null, CancellationToken cancellationToken = default)
         {
+            
             return await GenerateAsync(model, prompt, options, progressCallback, cancellationToken)
                 .ContinueWith(t => t.Result.ToImage(), cancellationToken)
                 .ConfigureAwait(false);
@@ -239,16 +243,14 @@ namespace OnnxStack.StableDiffusion.Services
         /// </exception>
         private async Task<DenseTensor<float>> DiffuseAsync(ModelOptions modelOptions, PromptOptions promptOptions, SchedulerOptions schedulerOptions, Action<DiffusionProgress> progress = null, CancellationToken cancellationToken = default)
         {
+            
             if (!_pipelines.TryGetValue(modelOptions.PipelineType, out var pipeline))
                 throw new Exception("Pipeline not found or is unsupported");
 
+            PipelineDiffuserGuard.AgainstDiffuserNotFoundOrSupportedException(pipeline, promptOptions.DiffuserType);
+            PipelineSchedulerGuard.AgainstInvalidSchedulerType(pipeline.PipelineType, schedulerOptions.SchedulerType);
+    
             var diffuser = pipeline.GetDiffuser(promptOptions.DiffuserType);
-            if (diffuser is null)
-                throw new Exception("Diffuser not found or is unsupported");
-
-            var schedulerSupported = pipeline.PipelineType.GetSchedulerTypes().Contains(schedulerOptions.SchedulerType);
-            if (!schedulerSupported)
-                throw new Exception($"Scheduler '{schedulerOptions.SchedulerType}' is not compatible  with the `{pipeline.PipelineType}` pipeline.");
 
             await GenerateInputVideoFrames(promptOptions, progress);
             return await diffuser.DiffuseAsync(modelOptions, promptOptions, schedulerOptions, progress, cancellationToken);
@@ -276,15 +278,12 @@ namespace OnnxStack.StableDiffusion.Services
         {
             if (!_pipelines.TryGetValue(modelOptions.PipelineType, out var pipeline))
                 throw new Exception("Pipeline not found or is unsupported");
+ 
 
+            PipelineDiffuserGuard.AgainstDiffuserNotFoundOrSupportedException(pipeline, promptOptions.DiffuserType);
+            PipelineSchedulerGuard.AgainstInvalidSchedulerType(pipeline.PipelineType, schedulerOptions.SchedulerType);
+         
             var diffuser = pipeline.GetDiffuser(promptOptions.DiffuserType);
-            if (diffuser is null)
-                throw new Exception("Diffuser not found or is unsupported");
-
-            var schedulerSupported = pipeline.PipelineType.GetSchedulerTypes().Contains(schedulerOptions.SchedulerType);
-            if (!schedulerSupported)
-                throw new Exception($"Scheduler '{schedulerOptions.SchedulerType}' is not compatible  with the `{pipeline.PipelineType}` pipeline.");
-
             await GenerateInputVideoFrames(promptOptions, progress);
             await foreach (var result in diffuser.DiffuseBatchAsync(modelOptions, promptOptions, schedulerOptions, batchOptions, progress, cancellationToken))
             {

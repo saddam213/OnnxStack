@@ -49,7 +49,7 @@ namespace OnnxStack.StableDiffusion.Pipelines
         /// <returns></returns>
         public IDiffuser GetDiffuser(DiffuserType diffuserType)
         {
-            _diffusers.TryGetValue(diffuserType, out var diffuser);
+            _diffusers.TryGetValue(diffuserType, out IDiffuser diffuser);
             return diffuser;
         }
     }

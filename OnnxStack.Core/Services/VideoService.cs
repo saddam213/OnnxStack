@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 
 namespace OnnxStack.Core.Services
 {
+    using Exceptions;
+
     /// <summary>
     /// Service with basic handling of video for use in OnnxStack, Frame->Video and Video->Frames
     /// </summary>
@@ -48,7 +50,7 @@ namespace OnnxStack.Core.Services
             if (videoInput.VideoTensor is not null)
                 throw new NotSupportedException("VideoTensor not supported");
 
-            throw new ArgumentException("No video data found");
+            throw new NoVideoDataFoundException();
         }
 
 
@@ -139,7 +141,7 @@ namespace OnnxStack.Core.Services
             if (videoInput.VideoStream is not null)
                 return await CreateFramesAsync(videoInput.VideoStream, videoFPS, cancellationToken);
             if (videoInput.VideoTensor is not null)
-                throw new NotSupportedException("VideoTensor not supported");
+                throw new VideoTensorNotSupportedException();
 
             throw new ArgumentException("No video data found");
         }
@@ -293,7 +295,7 @@ namespace OnnxStack.Core.Services
                         currentIndex += 8;// header length
 
                         if (!IsImageHeader(buffer))
-                            throw new Exception("Invalid PNG header");
+                            throw new InvalidPngHeaderException();
 
                         // loop through each chunk
                         while (true)
