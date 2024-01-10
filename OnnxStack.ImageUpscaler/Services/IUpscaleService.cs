@@ -1,5 +1,6 @@
 ﻿using Microsoft.ML.OnnxRuntime.Tensors;
 using OnnxStack.Core.Image;
+using OnnxStack.Core.Video;
 using OnnxStack.StableDiffusion.Config;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
@@ -67,5 +68,32 @@ namespace OnnxStack.ImageUpscaler.Services
         /// <param name="inputImage">The input image.</param>
         /// <returns></returns>
         Task<Stream> GenerateAsStreamAsync(UpscaleModelSet modelOptions, InputImage inputImage);
+
+
+        /// <summary>
+        /// Generates the upscaled video.
+        /// </summary>
+        /// <param name="modelOptions">The model options.</param>
+        /// <param name="videoInput">The video input.</param>
+        /// <returns></returns>
+        Task<DenseTensor<float>> GenerateAsync(UpscaleModelSet modelOptions, VideoInput videoInput);
+
+
+        /// <summary>
+        /// Generates the upscaled video.
+        /// </summary>
+        /// <param name="modelOptions">The model options.</param>
+        /// <param name="videoInput">The video input.</param>
+        /// <returns></returns>
+        Task<byte[]> GenerateAsByteAsync(UpscaleModelSet modelOptions, VideoInput videoInput);
+
+
+        /// <summary>
+        /// Generates the upscaled video.
+        /// </summary>
+        /// <param name="modelOptions">The model options.</param>
+        /// <param name="videoInput">The video input.</param>
+        /// <returns></returns>
+        Task<Stream> GenerateAsStreamAsync(UpscaleModelSet modelOptions, VideoInput videoInput);
     }
 }

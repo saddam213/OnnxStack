@@ -4,6 +4,7 @@ using OnnxStack.Core.Config;
 using OnnxStack.Core.Image;
 using OnnxStack.Core.Model;
 using OnnxStack.Core.Services;
+using OnnxStack.Core.Video;
 using OnnxStack.ImageUpscaler.Config;
 using OnnxStack.ImageUpscaler.Extensions;
 using OnnxStack.ImageUpscaler.Models;
@@ -11,7 +12,6 @@ using OnnxStack.StableDiffusion.Config;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,6 +23,7 @@ namespace OnnxStack.ImageUpscaler.Services
     {
         private readonly IOnnxModelService _modelService;
         private readonly ImageUpscalerConfig _configuration;
+        private readonly IVideoService _videoService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UpscaleService"/> class.
@@ -30,10 +31,11 @@ namespace OnnxStack.ImageUpscaler.Services
         /// <param name="configuration">The configuration.</param>
         /// <param name="modelService">The model service.</param>
         /// <param name="imageService">The image service.</param>
-        public UpscaleService(ImageUpscalerConfig configuration, IOnnxModelService modelService)
+        public UpscaleService(ImageUpscalerConfig configuration, IOnnxModelService modelService, IVideoService videoService)
         {
             _configuration = configuration;
             _modelService = modelService;
+            _videoService = videoService;
         }
 
 
@@ -129,6 +131,63 @@ namespace OnnxStack.ImageUpscaler.Services
             image.SaveAsPng(memoryStream);
             return memoryStream;
         }
+     
+
+        /// <summary>
+        /// Generates the upscaled video.
+        /// </summary>
+        /// <param name="modelOptions">The model options.</param>
+        /// <param name="videoInput">The video input.</param>
+        /// <returns></returns>
+        public async Task<DenseTensor<float>> GenerateAsync(UpscaleModelSet modelOptions, VideoInput videoInput)
+        {
+            DenseTensor<float> output = default;
+            var videoInfo = await _videoService.GetVideoInfoAsync(videoInput);
+            var videoFrames = await _videoService.CreateFramesAsync(videoInput, videoInfo.FPS);
+            foreach (var frame in videoFrames.Frames)
+            {
+                var image = await GenerateInternalAsync(modelOptions, new InputImage(frame));
+                output = output.Concatenate(image.ToDenseTensor(new[] { 1, 3, image.Height, image.Width }));
+            }
+            return output;
+        }
+
+
+        /// <summary>
+        /// Generates the upscaled video.
+        /// </summary>
+        /// <param name="modelOptions">The model options.</param>
+        /// <param name="videoInput">The video input.</param>
+        /// <returns></returns>
+        public async Task<byte[]> GenerateAsByteAsync(UpscaleModelSet modelOptions, VideoInput videoInput)
+        {
+            List<byte[]> output = new List<byte[]>();
+            var videoInfo = await _videoService.GetVideoInfoAsync(videoInput);
+            var videoFrames = await _videoService.CreateFramesAsync(videoInput, videoInfo.FPS);
+            foreach (var frame in videoFrames.Frames)
+            {
+
+                var image = await GenerateInternalAsync(modelOptions, new InputImage(frame));
+                var ms = new MemoryStream();
+                await image.SaveAsPngAsync(ms);
+                output.Add(ms.ToArray());
+            }
+
+            var videoResult = await _videoService.CreateVideoAsync(output, videoInfo.FPS);
+            return videoResult.Data;
+        }
+
+
+        /// <summary>
+        /// Generates the upscaled video.
+        /// </summary>
+        /// <param name="modelOptions">The model options.</param>
+        /// <param name="videoInput">The video input.</param>
+        /// <returns></returns>
+        public async Task<Stream> GenerateAsStreamAsync(UpscaleModelSet modelOptions, VideoInput videoInput)
+        {
+            return new MemoryStream(await GenerateAsByteAsync(modelOptions, videoInput));
+        }
 
 
         /// <summary>
@@ -168,6 +227,25 @@ namespace OnnxStack.ImageUpscaler.Services
 
 
         /// <summary>
+        /// Generates an upscaled video of the source provided.
+        /// </summary>
+        /// <param name="modelOptions">The model options.</param>
+        /// <param name="videoInput">The video input.</param>
+        /// <returns></returns>
+        public async Task<IEnumerable<Image<Rgba32>>> GenerateInternalAsync(UpscaleModelSet modelOptions, VideoInput videoInput)
+        {
+            var output = new List<Image<Rgba32>>();
+            var videoInfo = await _videoService.GetVideoInfoAsync(videoInput);
+            var videoFrames = await _videoService.CreateFramesAsync(videoInput, videoInfo.FPS);
+            foreach (var frame in videoFrames.Frames)
+            {
+                output.Add(await GenerateInternalAsync(modelOptions, new InputImage(frame)));
+            }
+            return output;
+        }
+
+
+        /// <summary>
         /// Creates the input parameters.
         /// </summary>
         /// <param name="imageSource">The image source.</param>
@@ -181,6 +259,5 @@ namespace OnnxStack.ImageUpscaler.Services
             var height = imageSource.Height * scaleFactor;
             return new UpscaleInput(tiles, width, height);
         }
-
     }
 }

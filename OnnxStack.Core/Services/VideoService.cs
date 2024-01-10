@@ -138,6 +138,8 @@ namespace OnnxStack.Core.Services
                 return await CreateFramesAsync(videoInput.VideoBytes, videoFPS, cancellationToken);
             if (videoInput.VideoStream is not null)
                 return await CreateFramesAsync(videoInput.VideoStream, videoFPS, cancellationToken);
+            if (videoInput.VideoFrames is not null)
+                return videoInput.VideoFrames;
             if (videoInput.VideoTensor is not null)
                 throw new NotSupportedException("VideoTensor not supported");
 

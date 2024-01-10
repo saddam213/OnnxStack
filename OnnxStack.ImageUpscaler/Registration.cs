@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using OnnxStack.Core;
 using OnnxStack.Core.Config;
+using OnnxStack.Core.Services;
 using OnnxStack.ImageUpscaler.Config;
-using OnnxStack.ImageUpscaler.Services;
 
 namespace OnnxStack.ImageUpscaler
 {
@@ -38,7 +38,7 @@ namespace OnnxStack.ImageUpscaler
         /// <param name="serviceCollection">The service collection.</param>
         private static void RegisterServices(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddSingleton<IUpscaleService, UpscaleService>();
+            serviceCollection.AddSingleton<IVideoService, VideoService>();
         }
 
 
