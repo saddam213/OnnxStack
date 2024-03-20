@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OnnxStack.Adapter", "OnnxSt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnnxStack.FeatureExtractor", "OnnxStack.FeatureExtractor\OnnxStack.FeatureExtractor.csproj", "{0E8095A4-83EF-48AD-9BD1-0CC2893050F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnnxStack.TextGeneration", "OnnxStack.TextGeneration\OnnxStack.TextGeneration.csproj", "{82C08941-721A-4662-83D0-6819DE6F6477}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{0E8095A4-83EF-48AD-9BD1-0CC2893050F6}.Release|x64.Build.0 = Release|x64
 		{0E8095A4-83EF-48AD-9BD1-0CC2893050F6}.Release-Nvidia|x64.ActiveCfg = Release|x64
 		{0E8095A4-83EF-48AD-9BD1-0CC2893050F6}.Release-Nvidia|x64.Build.0 = Release|x64
+		{82C08941-721A-4662-83D0-6819DE6F6477}.Debug|x64.ActiveCfg = Debug|x64
+		{82C08941-721A-4662-83D0-6819DE6F6477}.Debug|x64.Build.0 = Debug|x64
+		{82C08941-721A-4662-83D0-6819DE6F6477}.Debug-Nvidia|x64.ActiveCfg = Debug|x64
+		{82C08941-721A-4662-83D0-6819DE6F6477}.Debug-Nvidia|x64.Build.0 = Debug|x64
+		{82C08941-721A-4662-83D0-6819DE6F6477}.Release|x64.ActiveCfg = Release|x64
+		{82C08941-721A-4662-83D0-6819DE6F6477}.Release|x64.Build.0 = Release|x64
+		{82C08941-721A-4662-83D0-6819DE6F6477}.Release-Nvidia|x64.ActiveCfg = Release|x64
+		{82C08941-721A-4662-83D0-6819DE6F6477}.Release-Nvidia|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

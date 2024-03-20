@@ -22,6 +22,7 @@
     <ProjectReference Include="..\OnnxStack.FeatureExtractor\OnnxStack.FeatureExtractor.csproj" Condition=" '$(Configuration)' == 'Debug' OR '$(Configuration)' == 'Debug-Nvidia'" />
     <ProjectReference Include="..\OnnxStack.StableDiffusion\OnnxStack.StableDiffusion.csproj" Condition=" '$(Configuration)' == 'Debug' OR '$(Configuration)' == 'Debug-Nvidia'" />
     <ProjectReference Include="..\OnnxStack.ImageUpscaler\OnnxStack.ImageUpscaler.csproj" Condition=" '$(Configuration)' == 'Debug' OR '$(Configuration)' == 'Debug-Nvidia'" />
+    <ProjectReference Include="..\OnnxStack.TextGeneration\OnnxStack.TextGeneration.csproj" />
   </ItemGroup>
 
   <ItemGroup>
