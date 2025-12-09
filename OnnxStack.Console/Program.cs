@@ -1,12 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OnnxStack.Core;
 using OnnxStack.Device.Services;
 using System.Reflection;
-using OnnxStack.StableDiffusion.Python;
-using OnnxStack.StableDiffusion.Python.Config;
 
 namespace OnnxStack.Console
 {

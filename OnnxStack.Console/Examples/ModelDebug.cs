@@ -29,7 +29,7 @@ namespace OnnxStack.Console.Runner
 
             // Create Pipeline
             //var pipeline = StableDiffusionPipeline.CreatePipeline(provider, "M:\\Models\\Debug\\stable-diffusion-1.5_io32_amdgpu");
-            var pipeline = FluxPipeline.CreatePipeline(provider, "M:\\Models\\Flux\\Flux_kontext-f16-onnx", 512, modelType: ModelType.Instruct);
+            var pipeline = FluxPipeline.CreatePipeline(provider, "M:\\Models\\Flux\\Flux_kontext-f16-onnx", ModelType.Instruct);
             // var pipeline = LatentConsistencyPipeline.CreatePipeline("M:\\Models\\LCM_Dreamshaper_v7-onnx");
             // var pipeline = LatentConsistencyXLPipeline.CreatePipeline("D:\\Repositories\\Latent-Consistency-xl-Olive-Onnx");
             // var pipeline = StableDiffusionXLPipeline.CreatePipeline("C:\\Repositories\\sdxl-turbo-ryzenai-0912\\sdxl-turbo-ryzenai-0912", ModelType.Turbo, executionProvider: Core.Config.ExecutionProvider.RyzenAI);

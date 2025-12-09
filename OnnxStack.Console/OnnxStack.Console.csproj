@@ -20,12 +20,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="9.0.6" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.6" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.6" />
-    <PackageReference Include="Microsoft.AI.DirectML" Version="1.15.4" />
-    <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.23.0-dev-20250603-0558-cd5133371" />
-    <PackageReference Include="Microsoft.ML.OnnxRuntime.MIGraphX.Windows" Version="1.23.0-dev-20250603-0558-cd5133371" />
+    <PackageReference Include="System.Text.Json" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.1" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.23.2" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.DirectML" Version="1.23.0" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(Configuration)' == 'Release'">
@@ -34,8 +33,6 @@
     <PackageReference Include="OnnxStack.StableDiffusion" Version="0.41.26" />
     <PackageReference Include="OnnxStack.ImageUpscaler" Version="0.41.26" />
     <PackageReference Include="OnnxStack.FeatureExtractor" Version="0.41.26" />
-    <PackageReference Include="OnnxStack.StableDiffusion.AMD" Version="0.41.26" />
-    <PackageReference Include="OnnxStack.StableDiffusion.Python" Version="0.41.26" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(Configuration)' == 'Debug'">
@@ -44,7 +41,6 @@
     <ProjectReference Include="..\OnnxStack.FeatureExtractor\OnnxStack.FeatureExtractor.csproj" />
     <ProjectReference Include="..\OnnxStack.StableDiffusion\OnnxStack.StableDiffusion.csproj" />
     <ProjectReference Include="..\OnnxStack.ImageUpscaler\OnnxStack.ImageUpscaler.csproj" />
-    <ProjectReference Include="..\OnnxStack.StableDiffusion.AMD\OnnxStack.StableDiffusion.AMD.csproj" />
   </ItemGroup>
 
 

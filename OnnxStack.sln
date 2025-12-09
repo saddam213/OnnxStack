@@ -23,8 +23,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnnxStack.StableDiffusion.AMD", "OnnxStack.StableDiffusion.AMD\OnnxStack.StableDiffusion.AMD.csproj", "{E523273B-3996-4F3C-9E2F-85EA7689D271}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -59,10 +57,6 @@ Global
 		{2258C5A4-D0EB-4AE5-9B61-CA012A71EAFB}.Debug|x64.Build.0 = Debug|x64
 		{2258C5A4-D0EB-4AE5-9B61-CA012A71EAFB}.Release|x64.ActiveCfg = Release|x64
 		{2258C5A4-D0EB-4AE5-9B61-CA012A71EAFB}.Release|x64.Build.0 = Release|x64
-		{E523273B-3996-4F3C-9E2F-85EA7689D271}.Debug|x64.ActiveCfg = Debug|x64
-		{E523273B-3996-4F3C-9E2F-85EA7689D271}.Debug|x64.Build.0 = Debug|x64
-		{E523273B-3996-4F3C-9E2F-85EA7689D271}.Release|x64.ActiveCfg = Release|x64
-		{E523273B-3996-4F3C-9E2F-85EA7689D271}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
