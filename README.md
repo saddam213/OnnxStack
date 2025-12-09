@@ -6,11 +6,7 @@
 # Welcome to OnnxStack!
 OnnxStack transforms machine learning in .NET, Seamlessly integrating with `ONNX Runtime` and `Microsoft ML`, this library empowers you to build, deploy, and execute machine learning models entirely within the .NET ecosystem. Bid farewell to Python dependencies and embrace a new era of intelligent applications tailored for .NET
 
-__________________________
-## Required Dependencies
-1. `Microsoft.ML.OnnxRuntime.Managed` v1.23.0-dev-20250603-0558-cd5133371
-
-__________________________
+_________________________
 ## ONNX Runtime Resources
 - [ONNX Runtime C# API Doc](https://onnxruntime.ai/docs/api/csharp/api)
 - [Get Started with C# in ONNX Runtime](https://onnxruntime.ai/docs/get-started/with-csharp.html)
